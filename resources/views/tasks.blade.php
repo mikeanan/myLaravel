@@ -61,8 +61,14 @@
                                     <div>{{ $task->name }}</div>
                                 </td>
 
+                                <!-- TODO：每個任務後面加刪除按鈕 -->
                                 <td>
-                                    <!-- TODO：每個任務後面加刪除按鈕 -->
+                                    <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-btn fa-trash"></i>Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

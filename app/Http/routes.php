@@ -18,7 +18,11 @@ use Illuminate\Http\Request;
  * 顯示所有任務
  */
 Route::get('/', function () {
-    return view("tasks");
+    $tasks = Task::orderBy('created_at', 'asc')->get();
+
+    return view('tasks', [
+        'tasks' => $tasks
+    ]);
 });
 
 /**
@@ -34,6 +38,10 @@ Route::post('/task', function (Request $request) {
             ->withInput()
             ->withErrors($validator);
     }
+
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
 
     return redirect('/');
 });

@@ -36,8 +36,43 @@
                         </div>
                     </form>
                 </div>
-
             </div>
+
+            <!-- TODO: 顯示目前任務 -->
+        @if (count($tasks) > 0)
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    目前任務
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-striped task-table">
+
+                        <thead>
+                        <th>Task</th>
+                        <th>&nbsp;</th>
+                        </thead>
+
+                        <tbody>
+                        @foreach ($tasks as $task)
+                            <tr>
+                                <!-- 任務名稱 -->
+                                <td class="table-text">
+                                    <div>{{ $task->name }}</div>
+                                </td>
+
+                                <td>
+                                    <!-- TODO：每個任務後面加刪除按鈕 -->
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        @endif
+
         </div>
     </div>
 

@@ -10,7 +10,7 @@ class myController extends Controller
 {
     public function index()
     {
-        return "首頁";
+        return view("home");
     }
 
     public function contact_us()

@@ -65,7 +65,7 @@ class myController extends Controller
 
     public function cart()
     {
-        return "購物車";
+        return view("cart");
     }
 
     public function checkout()

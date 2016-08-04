@@ -20,7 +20,7 @@ class myController extends Controller
 
     public function login()
     {
-        return "登入";
+        return view("login");
     }
 
     public function logout()

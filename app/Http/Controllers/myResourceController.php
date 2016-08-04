@@ -15,7 +15,10 @@ class myResourceController extends Controller
      */
     public function index()
     {
-        return "myResourceController - index()~~~";
+//        return "myResourceController - index()~~~";
+        $students = ["Mike", "May", "Ray"];
+
+        return view("myView",["from_server" => "hello~", "year" => "2015", "students" => $students]);
     }
 
     /**

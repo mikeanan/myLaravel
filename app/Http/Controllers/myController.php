@@ -70,6 +70,6 @@ class myController extends Controller
 
     public function checkout()
     {
-        return "結帳";
+        return view("checkout");
     }
 }

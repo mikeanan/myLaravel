@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Home | E-Shopper</title>
+        <title>{{$title}} | E-Shopper</title>
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
@@ -64,11 +64,11 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href="#" {{$title == "Account" ? "class=active" : ""}}><i class="fa fa-user"></i> Account</a></li>
 
-                                    <li><a href="{{url('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="{{url('login')}}"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="{{url('checkout')}}" {{$title == "Checkout" ? "class=active" : ""}}><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="{{url('cart')}}" {{$title == "Cart" ? "class=active" : ""}}><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="{{url('login')}}" {{$title == "Login" ? "class=active" : ""}}><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -90,10 +90,10 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="{{url("/")}}" class="active">Home</a></li>
-                                    <li><a href="{{url("/products")}}">Products</a></li>
-                                    <li><a href="{{url("/blog")}}">Blog</a></li>
-                                    <li><a href="{{url("/contact_us")}}">Contact Us</a></li>
+                                    <li><a href="{{url("/")}}" {{$title == "Home" ? "class=active" : ""}}>Home</a></li>
+                                    <li><a href="{{url("/products")}}" {{$title == "Products" ? "class=active" : ""}}>Products</a></li>
+                                    <li><a href="{{url("/blog")}}" {{$title == "Blog" ? "class=active" : ""}}>Blog</a></li>
+                                    <li><a href="{{url("/contact_us")}}" {{$title == "Contact Us" ? "class=active" : ""}}>Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>

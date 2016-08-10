@@ -45,7 +45,7 @@ class myController extends Controller
 
     public function products_details($id)
     {
-        return "產品介紹:$id";
+        return view("products_details", ["title" => "Products Details", "i" => $id]);
     }
 
     public function blog()

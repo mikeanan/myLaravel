@@ -33,7 +33,7 @@
 								</span>
                             </div>
                             <a href="">
-                                <img src="images/blog/blog-one.jpg" alt="">
+                                <img src="{{asset("images/blog/blog-one.jpg")}}" alt="">
                             </a>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> <br>
@@ -77,12 +77,12 @@
                     </div><!--/rating-area-->
 
                     <div class="socials-share">
-                        <a href=""><img src="images/blog/socials.png" alt=""></a>
+                        <a href=""><img src="{{asset("images/blog/socials.png")}}" alt=""></a>
                     </div><!--/socials-share-->
 
                     <div class="media commnets">
                         <a class="pull-left" href="#">
-                            <img class="media-object" src="images/blog/man-one.jpg" alt="">
+                            <img class="media-object" src="{{asset("images/blog/man-one.jpg")}}" alt="">
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">Annie Davis</h4>
@@ -104,7 +104,7 @@
                             <li class="media">
 
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/blog/man-two.jpg" alt="">
+                                    <img class="media-object" src="{{asset("images/blog/man-two.jpg")}}" alt="">
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">
@@ -118,7 +118,7 @@
                             </li>
                             <li class="media second-media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/blog/man-three.jpg" alt="">
+                                    <img class="media-object" src="{{asset("images/blog/man-three.jpg")}}" alt="">
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">
@@ -132,7 +132,7 @@
                             </li>
                             <li class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/blog/man-four.jpg" alt="">
+                                    <img class="media-object" src="{{asset("images/blog/man-four.jpg")}}" alt="">
                                 </a>
                                 <div class="media-body">
                                     <ul class="sinlge-post-meta">

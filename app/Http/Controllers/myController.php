@@ -10,6 +10,9 @@ class myController extends Controller
 {
     public function index()
     {
+        $product = new \App\Product();
+        $product->name = "testhello~~ 從 Controller 123";
+        $product->save();
         return view("home", ["title" => "Home"]);
     }
 

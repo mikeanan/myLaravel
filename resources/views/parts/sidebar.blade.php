@@ -25,7 +25,6 @@
             @foreach($brands as $brand)
                 <li><a href="">{{$brand->name}}</a></li>
             @endforeach
-                {{ $brands->get(0)->name }}
             </ul>
         </div>
     </div><!--/brands_products-->

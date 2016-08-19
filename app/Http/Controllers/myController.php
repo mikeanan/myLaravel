@@ -132,6 +132,6 @@ class myController extends Controller
 
     public function checkout()
     {
-        return view("checkout", ["title" => "Checkout"]);
+        return view("checkout", ["title" => "Checkout", "description" => "網頁說明"]);
     }
 }

@@ -21,17 +21,17 @@ class myController extends Controller
 
     public function index()
     {
-        return view("home", ["title" => "Home", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
+        return view("home", ["title" => "Home", "description" => "網頁說明", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
     }
 
     public function contact_us()
     {
-        return view("contact_us", ["title" => "Contact Us"]);
+        return view("contact_us", ["title" => "Contact Us", "description" => "網頁說明"]);
     }
 
     public function login()
     {
-        return view("login", ["title" => "Login"]);
+        return view("login", ["title" => "Login", "description" => "網頁說明"]);
     }
 
     public function logout()
@@ -41,7 +41,7 @@ class myController extends Controller
 
     public function products()
     {
-        return view("products", ["title" => "Products", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
+        return view("products", ["title" => "Products", "description" => "網頁說明", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
     }
 
     public function products_category()
@@ -56,17 +56,17 @@ class myController extends Controller
 
     public function products_details($id)
     {
-        return view("products_details", ["title" => "Products Details", "i" => $id]);
+        return view("products_details", ["title" => "Products Details", "description" => "網頁說明", "i" => $id, "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
     }
 
     public function blog()
     {
-        return view("blog", ["title" => "Blog", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
+        return view("blog", ["title" => "Blog", "description" => "網頁說明", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
     }
 
     public function blog_post($i)
     {
-        return view("blog_post", ["title" => "Blog", "i" => $i]);
+        return view("blog_post", ["title" => "Blog", "description" => "網頁說明", "i" => $i]);
     }
 
     public function search($key_word)

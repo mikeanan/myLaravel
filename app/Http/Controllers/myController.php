@@ -86,6 +86,18 @@ class myController extends Controller
             ShoppingCart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price));
         }
 
+        if( Request::get("product_id") && (Request::get("add") == 1))
+        {
+            $items = ShoppingCart::Search(function ($cartItem, $rowId) { return $cartItem->id == Request::get("product_id");});
+            ShoppingCart::update($items->first()->rowId, $items->first()->qty + 1);
+        }
+
+        if( Request::get("product_id") && (Request::get("minus") == 1))
+        {
+            $items = ShoppingCart::Search(function ($cartItem, $rowId) { return $cartItem->id == Request::get("product_id");});
+            ShoppingCart::update($items->first()->rowId, $items->first()->qty - 1);
+        }
+
         $cart = ShoppingCart::content();
 
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);

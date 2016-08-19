@@ -80,8 +80,7 @@ class myController extends Controller
 
     public function cart()
     {
-        if(session()->has('cart_from_server'))
-            $cart = session("cart_from_server");
+        $cart = ShoppingCart::content();
 
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);
     }
@@ -96,9 +95,8 @@ class myController extends Controller
                     "qty" => 1,
                     "price" => $product->price]);
 
-        $cart = ShoppingCart::content();
 
-        return Redirect::to("cart")->with(["cart_from_server" => $cart, "title" => "Cart", "description" => "網頁說明"]);
+        return Redirect::to("cart")->with(["title" => "Cart", "description" => "網頁說明"]);
     }
     public function checkout()
     {

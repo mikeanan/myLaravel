@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use ShoppingCart;
 
+use Illuminate\Support\Facades\Redirect;
+
 class myController extends Controller
 {
     var $products;
@@ -78,7 +80,10 @@ class myController extends Controller
 
     public function cart()
     {
-        return view("cart", ["title" => "Cart"]);
+        if(session()->has('cart_from_server'))
+            $cart = session("cart_from_server");
+
+        return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);
     }
 
     public function cart_add()
@@ -93,7 +98,7 @@ class myController extends Controller
 
         $cart = ShoppingCart::content();
 
-        return view("cart", ["cart" => $cart, "title" => "Cart", "description" => "網頁說明"]);
+        return Redirect::to("cart")->with(["cart_from_server" => $cart, "title" => "Cart", "description" => "網頁說明"]);
     }
     public function checkout()
     {

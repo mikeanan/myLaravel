@@ -122,6 +122,14 @@ class myController extends Controller
 
         return redirect()->to("cart",["title" => "Cart", "description" => "網頁說明"]);
     }
+
+    public function clear_cart()
+    {
+        ShoppingCart::destroy();
+
+        return Redirect::to("cart");
+    }
+
     public function checkout()
     {
         return view("checkout", ["title" => "Checkout"]);

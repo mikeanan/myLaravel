@@ -124,11 +124,11 @@
                     <div class="total_area">
                         <ul>
                             <li>Cart Sub Total <span>$59</span></li>
-                            <li>Eco Tax <span>$2</span></li>
+                            <li>Eco Tax <span>{{ShoppingCart::tax()}}</span></li>
                             <li>Shipping Cost <span>Free</span></li>
                             <li>Total <span>{{ShoppingCart::total()}}</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="">Update</a>
+                        <a class="btn btn-default update" href="{{url("clear_cart")}}">Clear Cart</a>
                         <a class="btn btn-default check_out" href="">Check Out</a>
                     </div>
                 </div>

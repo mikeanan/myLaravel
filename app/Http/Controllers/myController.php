@@ -80,6 +80,12 @@ class myController extends Controller
 
     public function cart()
     {
+        if (Request::isMethod('post')) {
+            $product_id = Request::get('product_id');
+            $product = \App\Product::find($product_id);
+            ShoppingCart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price));
+        }
+
         $cart = ShoppingCart::content();
 
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);

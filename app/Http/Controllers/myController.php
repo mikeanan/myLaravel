@@ -98,6 +98,12 @@ class myController extends Controller
             ShoppingCart::update($items->first()->rowId, $items->first()->qty - 1);
         }
 
+        if( Request::get("product_id") && (Request::get("clear") == 1))
+        {
+            $items = ShoppingCart::Search(function ($cartItem, $rowId) { return $cartItem->id == Request::get("product_id");});
+            ShoppingCart::remove($items->first()->rowId);
+        }
+
         $cart = ShoppingCart::content();
 
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);

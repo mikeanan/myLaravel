@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
+
+use ShoppingCart;
 
 class myController extends Controller
 {
@@ -79,6 +81,20 @@ class myController extends Controller
         return view("cart", ["title" => "Cart"]);
     }
 
+    public function cart_add()
+    {
+        $product_id = Request::get("product_id");
+        $product = \App\Product::find($product_id);
+
+        ShoppingCart::add(["id" => $product_id,
+                    "name" => $product->name,
+                    "qty" => 1,
+                    "price" => $product->price]);
+
+        $cart = ShoppingCart::content();
+
+        return view("cart", ["cart" => $cart, "title" => "Cart", "description" => "網頁說明"]);
+    }
     public function checkout()
     {
         return view("checkout", ["title" => "Checkout"]);

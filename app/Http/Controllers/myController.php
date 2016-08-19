@@ -96,7 +96,7 @@ class myController extends Controller
                     "price" => $product->price]);
 
 
-        return Redirect::to("cart")->with(["title" => "Cart", "description" => "網頁說明"]);
+        return redirect()->to("cart",["title" => "Cart", "description" => "網頁說明"]);
     }
     public function checkout()
     {

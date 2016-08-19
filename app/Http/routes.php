@@ -11,11 +11,26 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get("/","myResourceController@index");
+//Route::get("/","myResourceController@index");
 
 Route::get("/show/{name}","myResourceController@show");
 
+
+//Route::auth();
+
+Route::get('login', '\App\Http\Controllers\Auth\AuthController@showLoginForm');
+Route::post('login', '\App\Http\Controllers\Auth\AuthController@login');
+Route::get('logout', '\App\Http\Controllers\Auth\AuthController@logout');
+
+Route::get('register', '\App\Http\Controllers\Auth\AuthController@showRegistrationForm');
+Route::post('register', '\App\Http\Controllers\Auth\AuthController@register');
+
+Route::get('password/reset/{token?}', '\App\Http\Controllers\Auth\PasswordController@showResetForm');
+Route::post('password/email', '\App\Http\Controllers\Auth\PasswordController@sendResetLinkEmail');
+Route::post('password/reset', '\App\Http\Controllers\Auth\PasswordController@reset');
+
+Route::get('/home', 'HomeController@index');

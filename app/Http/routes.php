@@ -47,6 +47,8 @@ Route::get("/clear_cart","myController@clear_cart");
 Route::get('/checkout', "myController@checkout");
 
 
+Route::post("/register", "myController@register");
+
 
 Route::get('/test/write', function (){
     $product = new \App\Product();

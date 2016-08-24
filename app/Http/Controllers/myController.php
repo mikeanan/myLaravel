@@ -10,6 +10,8 @@ use ShoppingCart;
 
 use Illuminate\Support\Facades\Redirect;
 
+use Auth;
+
 class myController extends Controller
 {
     var $products;
@@ -150,5 +152,21 @@ class myController extends Controller
         {
             return redirect()->to('login');
         }
+    }
+
+    public function auth_login(){
+        if(Auth::attempt(["email" => Request::get("email"), "password" => Request::get("password")]))
+        {
+            return redirect()->to("/");
+        }
+        else{
+            return redirect()->to("/login");
+        }
+    }
+
+    public function auth_logout(){
+        Auth::logout();
+
+        return redirect()->to("/");
     }
 }

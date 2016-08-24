@@ -46,6 +46,11 @@ Route::get("/clear_cart","myController@clear_cart");
 
 Route::get('/checkout', "myController@checkout");
 
+Route::post("/register", "myController@register");
+
+Route::post("/auth/login", "myController@auth_login");
+
+Route::get("/auth/logout", "myController@auth_logout");
 
 Route::post("/register", "myController@register");
 

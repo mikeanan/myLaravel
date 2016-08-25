@@ -158,6 +158,9 @@ return [
 
         // Shopping Cart
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
+        // Social Package
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -206,6 +209,9 @@ return [
 
         // Shopping Cart
         "ShoppingCart" => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+        // Social Package
+        "Socialite" => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

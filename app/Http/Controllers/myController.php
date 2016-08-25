@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 
 use Auth;
 
+use Socialite;
+
 class myController extends Controller
 {
     var $products;
@@ -168,5 +170,15 @@ class myController extends Controller
         Auth::logout();
 
         return redirect()->to("/");
+    }
+
+    public function fb_redirect()
+    {
+        return Socialite::driver("facebook")->redirect();
+    }
+
+    public function fb_callback()
+    {
+        return "我回來了～";
     }
 }

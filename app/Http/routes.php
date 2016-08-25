@@ -11,10 +11,6 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/', "myController@index");
 
 Route::get('/contact_us', "myController@contact_us");
@@ -53,6 +49,10 @@ Route::post("/auth/login", "myController@auth_login");
 Route::get("/auth/logout", "myController@auth_logout");
 
 Route::post("/register", "myController@register");
+
+Route::get("/fb_redirect", "myController@fb_redirect");
+
+Route::get("/fb_callback", "myController@fb_callback");
 
 
 Route::get('/test/write', function (){

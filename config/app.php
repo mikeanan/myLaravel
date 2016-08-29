@@ -161,6 +161,9 @@ return [
 
         // Social Package
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        // Allpay
+        ScottChayaa\Allpay\AllpayServiceProvider::class,
     ],
 
     /*
@@ -212,6 +215,9 @@ return [
 
         // Social Package
         "Socialite" => Laravel\Socialite\Facades\Socialite::class,
+
+        // Allpay
+        "Allpay" => ScottChayaa\Allpay\Facade\Allpay::class,
     ],
 
 ];

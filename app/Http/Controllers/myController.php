@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\SocialiteUserService;
+
 use Request;
 
 use App\Http\Requests;
@@ -177,10 +179,12 @@ class myController extends Controller
         return Socialite::driver("facebook")->redirect();
     }
 
-    public function fb_callback()
+    public function fb_callback(SocialiteUserService $socialiteUserService)
     {
-        $vendor_user = Socialite::driver("facebook")->user();
+        $user = $socialiteUserService->checkUser(Socialite::driver("facebook")->user());
 
-        return "$vendor_user->id, $vendor_user->nickname, $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
+        Auth::login($user);
+
+        return redirect()->to("/#fb_login_success");
     }
 }

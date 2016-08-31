@@ -16,6 +16,10 @@ use Auth;
 
 use Socialite;
 
+use App\User;
+
+use Validator;
+
 class myController extends Controller
 {
     var $products;
@@ -190,6 +194,28 @@ class myController extends Controller
 
     public function account()
     {
+        if (Request::isMethod('post'))
+        {
+            $account = User::whereName(Auth::user()->name)->first();
+
+            if(Request::has("name"))
+                $account->name = Request::get("name");
+
+            $validator = Validator::make(Request::all(), [
+                'password' => 'required|between:8,12|regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/|confirmed',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->to('account')->withErrors($validator)->withInput();
+            }
+
+            $account->password = bcrypt(Request::get("password"));
+
+            $account->save();
+
+            return redirect()->to('account')->with('message', 'Account Setting Success！！！');
+        }
+
         return view("account", ["title" => "Account", "description" => "網頁說明"]);
     }
 }

@@ -55,6 +55,7 @@ Route::get("/fb_redirect", "myController@fb_redirect");
 Route::get("/fb_callback", "myController@fb_callback");
 
 Route::get('/account', ["middleware" => "auth", "uses" => "myController@account"]);
+Route::post('/account', ["middleware" => "auth", "uses" => "myController@account"]);
 
 Route::get('/test/write', function (){
     $product = new \App\Product();

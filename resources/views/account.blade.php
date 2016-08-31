@@ -7,8 +7,19 @@
         <!--修改會員資料-->
         <div class='col-md-12 col-sm-12 col-xs-12 '>
             <h1 style='text-indent: 35px; color:#ffb40a; font-weight:900; font-size:18px; margin-bottom:4px;'>修改會員資料</h1>
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row" style='margin-left: 20px; '>
                 <div class="center_text4" style='border:1px solid #CCCCCC '>
+                    <form method="POST" action="{{url("/account")}}">
+                        {{csrf_field()}}
                     <div id="ctl00_ContentPlaceHolder1_UpdatePanel1">
                         <table border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
                             <tbody>
@@ -18,7 +29,7 @@
                                 </td>
                                 <td valign="top" bgcolor="#FFFFFF">
                                     <p class="center_text4_field2">
-                                        <input name="" type="text" maxlength="12" id="ctl00_ContentPlaceHolder1_IdTxt" tabindex="10" class="textarea1" size="20" onblur="IdTxt_onblur();">
+                                        <input name="name" type="text" maxlength="12" id="ctl00_ContentPlaceHolder1_IdTxt" tabindex="10" class="textarea1" size="20" onblur="IdTxt_onblur();"  placeholder="{{Auth::user()->name}}">
                                     </p>
                                 </td>
                             </tr>
@@ -49,7 +60,7 @@
                             </td>
                             <td valign="top" bgcolor="#FFFFFF">
                                 <p class="">
-                                    <input name="" type="password" maxlength="12" id="" tabindex="12" class="textarea1" size="20"> &nbsp;&nbsp;密碼需由8碼~12碼英文與數字組合而成。 &nbsp;
+                                    <input name="password" type="password" maxlength="12" id="" tabindex="12" class="textarea1" size="20"> &nbsp;&nbsp;密碼需由8碼~12碼英文與數字組合而成。 &nbsp;
                                 </p>
                             </td>
                         </tr>
@@ -59,16 +70,17 @@
                             </td>
                             <td valign="top" bgcolor="#FFFFFF">
                                 <p class="">
-                                    <input name="" type="password" maxlength="12" id="" tabindex="13" class="textarea1" size="20">
+                                    <input name="password_confirmation" type="password" maxlength="12" id="" tabindex="13" class="textarea1" size="20">
                                 </p>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                     <div style='margin-top: 16px; margin-left: 223px;'>
-                        <button type="button" class="btn btn-default">確認修改</button>
+                        <button type="submit" class="btn btn-default">確認修改</button>
                         <button type="button" class="btn btn-default">重填</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

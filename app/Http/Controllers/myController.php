@@ -187,4 +187,9 @@ class myController extends Controller
 
         return redirect()->to("/#fb_login_success");
     }
+
+    public function account()
+    {
+        return view("account", ["title" => "Account", "description" => "網頁說明"]);
+    }
 }

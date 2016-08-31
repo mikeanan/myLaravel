@@ -66,7 +66,7 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#" {{$title == "Account" ? "class=active" : ""}}><i class="fa fa-user"></i>{{ Auth::check() ? Auth::user()->name : "Account" }}</a></li>
+                                    <li><a href="{{url("account")}}" {{$title == "Account" ? "class=active" : ""}}><i class="fa fa-user"></i>{{ Auth::check() ? Auth::user()->name : "Account" }}</a></li>
 
                                     <li><a href="{{url('checkout')}}" {{$title == "Checkout" ? "class=active" : ""}}><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="{{url('cart')}}" {{$title == "Cart" ? "class=active" : ""}}><i class="fa fa-shopping-cart"></i> Cart</a></li>
